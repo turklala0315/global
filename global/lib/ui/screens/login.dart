@@ -11,7 +11,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  Uri dailnumber = Uri(scheme: 'tel', path: '12345678');
+  // Uri dailnumber = Uri(scheme: 'tel', path: '12345678');
 
   @override
   Widget build(BuildContext context) {
@@ -34,33 +34,33 @@ class _LoginState extends State<Login> {
               ),
             ),
             //
-            SizedBox(height: 200),
+            const SizedBox(height: 200),
             //
             Image.asset('$staticAssets/goods.png'),
             //
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             //
-            Center(
+            const Center(
                 child: Text(
               'Thank you',
               style: style26,
             )),
             //
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             //
-            Text(
+            const Text(
               'Your new number was successfully verified.',
               style: style10,
             ),
             //
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             //
-            Text(
+            const Text(
                 'The app would like to access your Contacts to synchronize and display the call history properly.',
                 style: style10r,
                 textAlign: TextAlign.center),
             //
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             //
             GestureDetector(
               onTap: () {},
@@ -69,7 +69,7 @@ class _LoginState extends State<Login> {
                 width: 320,
                 decoration: BoxDecoration(
                     color: mainorange, borderRadius: BorderRadius.circular(20)),
-                child: Center(
+                child: const Center(
                     child: Text(
                   'Continue to the App',
                   style: style10w,
