@@ -13,6 +13,7 @@ class RootScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // List of all screens for the navigation
     List allscreens = [
       const Home(),
       const Sms(),
@@ -20,31 +21,50 @@ class RootScreen extends StatelessWidget {
       const History(),
       const AppSettings()
     ];
+
+    // Get the provider
     final provider = Provider.of<BottomBarProvider>(context);
+    print('only this widget can build');
+
     return Scaffold(
-      body: allscreens[provider.selectedIndex.Index],
+      // Body with the selected screen
+      body: allscreens[provider.selectedIndex],
+      // Bottom Navigation Bar
       bottomNavigationBar: BottomNavigationBar(
-          onTap: (index) {
-            provider.changeSelectedIndex(index);
-          },
-          selectedItemColor: mainorange,
-          unselectedItemColor: Colors.grey,
-          backgroundColor: Colors.white,
-          showSelectedLabels: true,
-          showUnselectedLabels: true,
-          iconSize: 25,
-          items: const [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined), label: "My account"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.sms_failed_outlined), label: " SMS"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.keyboard_backspace_rounded), label: "Keypad"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.refresh), label: " History"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.adjust_rounded), label: " App settings")
-          ]),
+        currentIndex:
+            provider.selectedIndex, // This binds the index to the selected item
+        onTap: (index) {
+          provider.changeSelectedIndex(index); // This updates the index
+        },
+        selectedItemColor: mainorange,
+        unselectedItemColor: Colors.grey,
+        backgroundColor: Colors.white,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        iconSize: 25,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: "My account",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.sms_failed_outlined),
+            label: " SMS",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.keyboard_backspace_rounded),
+            label: "Keypad",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.refresh),
+            label: " History",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.adjust_rounded),
+            label: " App settings",
+          ),
+        ],
+      ),
     );
   }
 }
