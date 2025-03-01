@@ -24,7 +24,6 @@ class RootScreen extends StatelessWidget {
 
     // Get the provider
     final provider = Provider.of<BottomBarProvider>(context);
-    print('only this widget can build');
 
     return Scaffold(
       // Body with the selected screen

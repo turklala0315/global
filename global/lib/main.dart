@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:global/core/providers/bottom_bar/bottom_bar.dart';
-import 'package:global/ui/screens/app_settings.dart';
-import 'package:global/ui/screens/home.dart';
 import 'package:global/ui/screens/keypad.dart';
-import 'package:global/ui/screens/root_screen/root_screen.dart';
-import 'package:global/ui/screens/sms.dart';
+
 import 'package:provider/provider.dart';
 
 void main() {
@@ -20,14 +17,13 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => BottomBarProvider())],
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.white38),
-          useMaterial3: true,
-        ),
-        home: const RootScreen(),
-      ),
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.white38),
+            useMaterial3: true,
+          ),
+          home: const Keypad()),
     );
   }
 }

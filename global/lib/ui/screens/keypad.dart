@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:global/core/constant/color/colors.dart';
 import 'package:global/core/constant/string/string.dart';
-import 'package:global/core/providers/bottom_bar/bottom_bar.dart';
-import 'package:global/ui/screens/app_settings.dart';
-import 'package:global/ui/screens/history.dart';
-import 'package:global/ui/screens/home.dart';
-import 'package:global/ui/screens/sms.dart';
+import 'package:global/core/providers/bottom_bar/dialer_provider/dialer_provider.dart';
 import 'package:provider/provider.dart';
 
 class Keypad extends StatefulWidget {
@@ -18,6 +13,7 @@ class Keypad extends StatefulWidget {
 class _KeypadState extends State<Keypad> {
   @override
   Widget build(BuildContext context) {
+    final TextField = TextEditingController();
     return Scaffold(
       body: Column(
         children: [
@@ -28,13 +24,27 @@ class _KeypadState extends State<Keypad> {
                 Image.asset(
                   '$staticAssets/logo.png',
                   scale: 2,
-                )
+                ),
               ],
+            ),
+          ),
+          //
+          const SizedBox(height: 30),
+          //
+          ListTile(
+            leading: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Text(
+                Provider.of<DialerProvider>(context).phoneNumber,
+                style: const TextStyle(
+                    fontSize: 35,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
           )
         ],
       ),
-      // bottomNavigationBar: ,
     );
   }
 }
