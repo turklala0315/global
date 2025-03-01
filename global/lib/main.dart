@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:global/core/providers/bottom_bar/bottom_bar.dart';
-import 'package:global/ui/screens/keypad.dart';
+import 'package:global/core/providers/bottom_bar/dialer_provider/dialer_provider.dart';
+import 'package:global/ui/screens/root_screen/root_screen.dart';
 
 import 'package:provider/provider.dart';
 
@@ -15,7 +16,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => BottomBarProvider())],
+      providers: [
+        ChangeNotifierProvider(create: (_) => BottomBarProvider()),
+        ChangeNotifierProvider(create: (_) => DialerProvider())
+      ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
@@ -23,7 +27,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.white38),
             useMaterial3: true,
           ),
-          home: const Keypad()),
+          home: const RootScreen()),
     );
   }
 }

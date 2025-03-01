@@ -38,6 +38,12 @@ const style26 = TextStyle(
     color: Colors.black,
     fontFamily: 'semibold',
     fontWeight: FontWeight.w700);
+const style18regular = TextStyle(
+    fontSize: 18,
+    color: Colors.black,
+    fontFamily: 'regular',
+    fontWeight: FontWeight.w700);
+
 const style16b =
     TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold);
 const style14N =
@@ -56,3 +62,5 @@ const style14Brown = TextStyle(
     fontSize: 12, color: Color(0xff96979B), fontWeight: FontWeight.bold);
 const style12b =
     TextStyle(fontSize: 12, color: Colors.black, fontWeight: FontWeight.bold);
+const style12bgreen = TextStyle(
+    fontSize: 13, color: Color(0xff39ad4a), fontWeight: FontWeight.bold);
