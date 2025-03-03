@@ -12,16 +12,6 @@ class Keypad extends StatefulWidget {
 
 class _KeypadState extends State<Keypad> {
   final Textfield = TextEditingController();
-  Widget inputField() {
-    return Container(
-      decoration: BoxDecoration(
-          color: Colors.white38, borderRadius: BorderRadius.circular(20)),
-      child: TextFormField(
-        decoration: const InputDecoration(border: InputBorder.none),
-        controller: Textfield,
-      ),
-    );
-  }
 
   String display = '';
   @override
@@ -43,6 +33,11 @@ class _KeypadState extends State<Keypad> {
           ),
           //
           const SizedBox(height: 30),
+          //
+          //
+          //
+          //text fiel start....
+          //
           //
           Padding(
             padding: const EdgeInsets.symmetric(
@@ -75,7 +70,13 @@ class _KeypadState extends State<Keypad> {
             ),
           ),
           //
+          // text field end
+          //
+          //
           const SizedBox(height: 10),
+          //
+          //
+          //text button start
           //
           TextButton(
             onPressed: () {},
@@ -84,6 +85,13 @@ class _KeypadState extends State<Keypad> {
               style: style12bgreen,
             ),
           ),
+          //
+          //
+          //text buttton end
+          //
+          //
+          //
+          // keypad buttons starts
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
             child: Row(
@@ -236,6 +244,12 @@ class _KeypadState extends State<Keypad> {
               ],
             ),
           ),
+          //
+          //
+          //keypad button end
+          //
+          //
+          //cantact icon start
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
             child: Row(
@@ -248,6 +262,14 @@ class _KeypadState extends State<Keypad> {
                       size: 30,
                       color: green,
                     )),
+                //
+                //
+                //contact icon end
+                //
+                //
+                // call icon button start
+                //
+                //
                 InkWell(
                   onTap: () {},
                   child: const CircleAvatar(
@@ -260,6 +282,12 @@ class _KeypadState extends State<Keypad> {
                     ),
                   ),
                 ),
+                //
+                ///
+                /// call icon button end
+                /// //
+                /// //
+                /// backspace icon button start
                 IconButton(
                     onPressed: () {
                       if (display.isNotEmpty) {
@@ -269,6 +297,9 @@ class _KeypadState extends State<Keypad> {
                       }
                     },
                     icon: const Icon(Icons.backspace_outlined))
+                //
+                //
+                // backspace icon button end
               ],
             ),
           ),
