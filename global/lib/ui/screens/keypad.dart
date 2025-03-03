@@ -11,171 +11,268 @@ class Keypad extends StatefulWidget {
 }
 
 class _KeypadState extends State<Keypad> {
-  String display = '';
+  final Textfield = TextEditingController();
+  Widget inputField() {
+    return Container(
+      decoration: BoxDecoration(
+          color: Colors.white38, borderRadius: BorderRadius.circular(20)),
+      child: TextFormField(
+        decoration: const InputDecoration(border: InputBorder.none),
+        controller: Textfield,
+      ),
+    );
+  }
 
+  String display = '';
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Image.asset(
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 50),
+            child: Row(
+              children: [
+                Image.asset(
                   '$staticAssets/logo.png',
                   scale: 2,
                 ),
-              ),
+              ],
             ),
-            //
-            const SizedBox(height: 10),
-            //
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: Colors.white38,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Center(
-                          child: Text(
-                            display,
-                            style: const TextStyle(
-                              fontSize: 22,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            overflow:
-                                TextOverflow.ellipsis, // Prevents overflow
-                            maxLines: 1,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+          ),
+          //
+          const SizedBox(height: 30),
+          //
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20,
             ),
-            //
-            const SizedBox(height: 10),
-            //
-            TextButton(
-              onPressed: () {},
-              child: const Text(
-                'Add Contact',
-                style: style12bgreen,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 50),
+              decoration: BoxDecoration(
+                color: Colors.white38,
+                borderRadius: BorderRadius.circular(20),
               ),
-            ),
-            //
-            const SizedBox(height: 10),
-            //
-            Expanded(
-              child: GridView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                itemCount: 12,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  mainAxisSpacing: 15,
-                  crossAxisSpacing: 15,
-                  childAspectRatio: 1.2, // Ensures proper button size
-                ),
-                itemBuilder: (context, index) {
-                  List<String> buttons = [
-                    '1',
-                    '2',
-                    '3',
-                    '4',
-                    '5',
-                    '6',
-                    '7',
-                    '8',
-                    '9',
-                    '*',
-                    '0',
-                    '#'
-                  ];
-
-                  return dialpadButton(size, buttons[index]);
-                },
-              ),
-            ),
-            //
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  IconButton(
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                        display,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        overflow: TextOverflow.ellipsis, // Prevents overflow
+                        maxLines: 1,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          //
+          const SizedBox(height: 10),
+          //
+          TextButton(
+            onPressed: () {},
+            child: const Text(
+              'Add Contact',
+              style: style12bgreen,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TextButton(
+                    onPressed: () {
+                      setState(() {
+                        display += '1';
+                      });
+                    },
+                    child: const Text(
+                      '1',
+                      style: style18regular,
+                    )),
+                TextButton(
+                    onPressed: () {
+                      setState(() {
+                        display += '2';
+                      });
+                    },
+                    child: const Text(
+                      '2',
+                      style: style18regular,
+                    )),
+                TextButton(
+                    onPressed: () {
+                      setState(() {
+                        display += '3';
+                      });
+                    },
+                    child: const Text(
+                      '3',
+                      style: style18regular,
+                    ))
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TextButton(
+                    onPressed: () {
+                      setState(() {
+                        display += '4';
+                      });
+                    },
+                    child: const Text(
+                      '4',
+                      style: style18regular,
+                    )),
+                TextButton(
+                    onPressed: () {
+                      setState(() {
+                        display += '5';
+                      });
+                    },
+                    child: const Text(
+                      '5',
+                      style: style18regular,
+                    )),
+                TextButton(
+                    onPressed: () {
+                      setState(() {
+                        display += '6';
+                      });
+                    },
+                    child: const Text(
+                      '6',
+                      style: style18regular,
+                    ))
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TextButton(
+                    onPressed: () {
+                      setState(() {
+                        display += '7';
+                      });
+                    },
+                    child: const Text(
+                      '7',
+                      style: style18regular,
+                    )),
+                TextButton(
+                    onPressed: () {
+                      setState(() {
+                        display += '8';
+                      });
+                    },
+                    child: const Text(
+                      '8',
+                      style: style18regular,
+                    )),
+                TextButton(
+                    onPressed: () {
+                      setState(() {
+                        display += '9';
+                      });
+                    },
+                    child: const Text(
+                      '9',
+                      style: style18regular,
+                    ))
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TextButton(
+                    onPressed: () {
+                      setState(() {
+                        display += '*';
+                      });
+                    },
+                    child: const Text(
+                      '*',
+                      style: style18regular,
+                    )),
+                TextButton(
+                    onPressed: () {
+                      setState(() {
+                        display += '0';
+                      });
+                    },
+                    child: const Text(
+                      '0',
+                      style: style18regular,
+                    )),
+                TextButton(
+                    onPressed: () {
+                      setState(() {
+                        display += '#';
+                      });
+                    },
+                    child: const Text(
+                      '#',
+                      style: style18regular,
+                    ))
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
                     onPressed: () {},
                     icon: const Icon(
                       Icons.import_contacts_rounded,
                       size: 30,
                       color: green,
+                    )),
+                InkWell(
+                  onTap: () {},
+                  child: const CircleAvatar(
+                    radius: 30,
+                    backgroundColor: mainorange,
+                    child: Icon(
+                      Icons.call,
+                      size: 30,
+                      color: Colors.white,
                     ),
                   ),
-                  InkWell(
-                    onTap: () {},
-                    child: const CircleAvatar(
-                      radius: 30,
-                      backgroundColor: mainorange,
-                      child: Icon(
-                        Icons.call,
-                        size: 30,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  // if (display.isNotEmpty)
-                  IconButton(
-                    icon: const Icon(Icons.backspace_outlined),
+                ),
+                IconButton(
                     onPressed: () {
-                      setState(() {
-                        display = display.substring(0, display.length - 1);
-                      });
+                      if (display.isNotEmpty) {
+                        setState(() {
+                          display = display.substring(0, display.length - 1);
+                        });
+                      }
                     },
-                  ),
-                  // const SizedBox(width: 20), // Spacer for alignment
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget dialpadButton(Size size, String value) {
-    return InkWell(
-      onTap: () {
-        setState(() {
-          display += value;
-        });
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey, width: 0.5),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Center(
-          child: Text(
-            value,
-            style: const TextStyle(
-              color: Colors.black,
-              fontSize: 28,
-              fontWeight: FontWeight.bold,
+                    icon: const Icon(Icons.backspace_outlined))
+              ],
             ),
           ),
-        ),
+        ],
       ),
     );
   }
