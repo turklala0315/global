@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:global/core/providers/bottom_bar/bottom_bar.dart';
-import 'package:global/core/providers/bottom_bar/dialer_provider/dialer_provider.dart';
 import 'package:global/ui/screens/root_screen/root_screen.dart';
 
 import 'package:provider/provider.dart';
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => BottomBarProvider()),
-        ChangeNotifierProvider(create: (_) => DialerProvider())
+        // ChangeNotifierProvider(create: (_) => DialerProvider())
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
