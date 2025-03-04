@@ -77,9 +77,11 @@ class _KeypadState extends State<Keypad> {
               children: [
                 TextButton(
                     onPressed: () {
-                      setState(() {
-                        display += '1';
-                      });
+                      if (display.length < 15) {
+                        setState(() {
+                          display += '1';
+                        });
+                      }
                     },
                     child: const Text(
                       '1',
@@ -87,9 +89,11 @@ class _KeypadState extends State<Keypad> {
                     )),
                 TextButton(
                     onPressed: () {
-                      setState(() {
-                        display += '2';
-                      });
+                      if (display.length < 15) {
+                        setState(() {
+                          display += '2';
+                        });
+                      }
                     },
                     child: const Text(
                       '2',
@@ -97,9 +101,11 @@ class _KeypadState extends State<Keypad> {
                     )),
                 TextButton(
                     onPressed: () {
-                      setState(() {
-                        display += '3';
-                      });
+                      if (display.length < 15) {
+                        setState(() {
+                          display += '3';
+                        });
+                      }
                     },
                     child: const Text(
                       '3',
@@ -115,9 +121,11 @@ class _KeypadState extends State<Keypad> {
               children: [
                 TextButton(
                     onPressed: () {
-                      setState(() {
-                        display += '4';
-                      });
+                      if (display.length < 15) {
+                        setState(() {
+                          display += '4';
+                        });
+                      }
                     },
                     child: const Text(
                       '4',
@@ -125,9 +133,11 @@ class _KeypadState extends State<Keypad> {
                     )),
                 TextButton(
                     onPressed: () {
-                      setState(() {
-                        display += '5';
-                      });
+                      if (display.length < 15) {
+                        setState(() {
+                          display += '5';
+                        });
+                      }
                     },
                     child: const Text(
                       '5',
@@ -135,9 +145,11 @@ class _KeypadState extends State<Keypad> {
                     )),
                 TextButton(
                     onPressed: () {
-                      setState(() {
-                        display += '6';
-                      });
+                      if (display.length < 15) {
+                        setState(() {
+                          display += '6';
+                        });
+                      }
                     },
                     child: const Text(
                       '6',
@@ -153,9 +165,11 @@ class _KeypadState extends State<Keypad> {
               children: [
                 TextButton(
                     onPressed: () {
-                      setState(() {
-                        display += '7';
-                      });
+                      if (display.length < 15) {
+                        setState(() {
+                          display += '7';
+                        });
+                      }
                     },
                     child: const Text(
                       '7',
@@ -163,9 +177,11 @@ class _KeypadState extends State<Keypad> {
                     )),
                 TextButton(
                     onPressed: () {
-                      setState(() {
-                        display += '8';
-                      });
+                      if (display.length < 15) {
+                        setState(() {
+                          display += '8';
+                        });
+                      }
                     },
                     child: const Text(
                       '8',
@@ -173,9 +189,11 @@ class _KeypadState extends State<Keypad> {
                     )),
                 TextButton(
                     onPressed: () {
-                      setState(() {
-                        display += '9';
-                      });
+                      if (display.length < 15) {
+                        setState(() {
+                          display += '9';
+                        });
+                      }
                     },
                     child: const Text(
                       '9',
@@ -191,9 +209,11 @@ class _KeypadState extends State<Keypad> {
               children: [
                 TextButton(
                     onPressed: () {
-                      setState(() {
-                        display += '*';
-                      });
+                      if (display.length < 15) {
+                        setState(() {
+                          display += '*';
+                        });
+                      }
                     },
                     child: const Text(
                       '*',
@@ -201,14 +221,18 @@ class _KeypadState extends State<Keypad> {
                     )),
                 TextButton(
                   onLongPress: () {
-                    setState(() {
-                      display += '+';
-                    });
+                    if (display.length <= 1) {
+                      setState(() {
+                        display += '+';
+                      });
+                    }
                   },
                   onPressed: () {
-                    setState(() {
-                      display += '0';
-                    });
+                    if (display.length < 15) {
+                      setState(() {
+                        display += '0';
+                      });
+                    }
                   },
                   child: RichText(
                     text: const TextSpan(
@@ -219,9 +243,11 @@ class _KeypadState extends State<Keypad> {
                 ),
                 TextButton(
                     onPressed: () {
-                      setState(() {
-                        display += '#';
-                      });
+                      if (display.length < 15) {
+                        setState(() {
+                          display += '#';
+                        });
+                      }
                     },
                     child: const Text(
                       '#',
