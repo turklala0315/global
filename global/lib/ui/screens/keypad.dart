@@ -33,11 +33,6 @@ class _KeypadState extends State<Keypad> {
           const SizedBox(height: 30),
           //
           //
-
-          //
-          const SizedBox(height: 10),
-          //
-
           //
           //text field start....
           //
