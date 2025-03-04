@@ -11,8 +11,6 @@ class Keypad extends StatefulWidget {
 }
 
 class _KeypadState extends State<Keypad> {
-  final Textfield = TextEditingController();
-
   String display = '';
   @override
   Widget build(BuildContext context) {
@@ -35,45 +33,29 @@ class _KeypadState extends State<Keypad> {
           const SizedBox(height: 30),
           //
           //
+
           //
-          //text fiel start....
+          const SizedBox(height: 10),
+          //
+
+          //
+          //text field start....
           //
           //
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
+          Text(
+            display,
+
+            style: const TextStyle(
+              fontSize: 20,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
             ),
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 50),
-              decoration: BoxDecoration(
-                color: Colors.white38,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Center(
-                      child: Text(
-                        display,
-                        style: const TextStyle(
-                          fontSize: 20,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        overflow: TextOverflow.ellipsis, // Prevents overflow
-                        maxLines: 1,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            overflow: TextOverflow.ellipsis, // Prevents overflow
+            maxLines: 1,
           ),
           //
           // text field end
           //
-          //
-          const SizedBox(height: 10),
           //
           //
           //text button start
@@ -86,6 +68,7 @@ class _KeypadState extends State<Keypad> {
             ),
           ),
           //
+
           //
           //text buttton end
           //
@@ -222,15 +205,23 @@ class _KeypadState extends State<Keypad> {
                       style: style18regular,
                     )),
                 TextButton(
-                    onPressed: () {
-                      setState(() {
-                        display += '0';
-                      });
-                    },
-                    child: const Text(
-                      '0',
-                      style: style18regular,
-                    )),
+                  onLongPress: () {
+                    setState(() {
+                      display += '+';
+                    });
+                  },
+                  onPressed: () {
+                    setState(() {
+                      display += '0';
+                    });
+                  },
+                  child: RichText(
+                    text: const TextSpan(
+                        text: '0\n',
+                        style: style18regular,
+                        children: [TextSpan(text: '+', style: style14Brown)]),
+                  ),
+                ),
                 TextButton(
                     onPressed: () {
                       setState(() {
