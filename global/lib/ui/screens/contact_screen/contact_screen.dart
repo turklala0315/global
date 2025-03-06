@@ -53,7 +53,7 @@ class _ContactScreenState extends State<ContactScreen> {
               ),
             ),
             const SizedBox(height: 10),
-            contacts == null
+            contacts == null || contacts!.isEmpty
                 ? const Center(
                     child: CircularProgressIndicator(color: mainorange),
                   )
