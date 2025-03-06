@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:global/core/constant/color/colors.dart';
 import 'package:global/core/providers/bottom_bar/bottom_bar.dart';
-import 'package:global/ui/screens/app_settings.dart';
-import 'package:global/ui/screens/history.dart';
-import 'package:global/ui/screens/home.dart';
-import 'package:global/ui/screens/keypad.dart';
-import 'package:global/ui/screens/sms.dart';
+import 'package:global/ui/screens/app_setting_screen/app_settings.dart';
+import 'package:global/ui/screens/history_screen/history.dart';
+import 'package:global/ui/screens/home_screen/home.dart';
+import 'package:global/ui/screens/keypad/keypad.dart';
+import 'package:global/ui/screens/sms_screen/sms.dart';
 import 'package:provider/provider.dart';
 
 class RootScreen extends StatelessWidget {

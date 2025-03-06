@@ -53,7 +53,7 @@ const style12 = TextStyle(fontSize: 12, color: Colors.black);
 ///**********************************    Bold             ********************************************************************** */
 
 const style24B =
-    TextStyle(fontSize: 34, color: Colors.black, fontWeight: FontWeight.bold);
+    TextStyle(fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold);
 const style16B =
     TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold);
 const style14B =

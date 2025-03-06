@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_contacts/contact.dart';
 import 'package:global/core/providers/bottom_bar/bottom_bar.dart';
+import 'package:global/ui/screens/contact_screen/contact_screen.dart';
 import 'package:global/ui/screens/root_screen/root_screen.dart';
 
 import 'package:provider/provider.dart';

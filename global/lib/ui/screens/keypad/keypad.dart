@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:global/core/constant/color/colors.dart';
 import 'package:global/core/constant/string/string.dart';
 import 'package:global/core/constant/text_style/text_style.dart';
+import 'package:global/ui/screens/contact_screen/contact_screen.dart';
 
 class Keypad extends StatefulWidget {
   const Keypad({super.key});
@@ -14,7 +15,6 @@ class _KeypadState extends State<Keypad> {
   String display = '';
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Scaffold(
       body: Column(
         children: [
@@ -268,7 +268,14 @@ class _KeypadState extends State<Keypad> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      // bool permission =
+                      //     await FlutterNativeContactPicker.requestPermission();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ContactScreen()));
+                    },
                     icon: const Icon(
                       Icons.import_contacts_rounded,
                       size: 30,
