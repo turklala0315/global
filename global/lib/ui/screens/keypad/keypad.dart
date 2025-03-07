@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:global/core/constant/color/colors.dart';
 import 'package:global/core/constant/string/string.dart';
 import 'package:global/core/constant/text_style/text_style.dart';
+import 'package:global/ui/screens/add_to_contact_screen/add_to_contact.dart';
 import 'package:global/ui/screens/contact_screen/contact_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -45,7 +46,15 @@ class _KeypadState extends State<Keypad> {
           ),
 
           TextButton(
-            onPressed: () {},
+            onPressed: () async {
+              String selectedContact = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const AddToContact()));
+              setState(() {
+                display = selectedContact;
+              });
+            },
             child: Text(
               'Add Contact',
               style: style12bgreen,
