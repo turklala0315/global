@@ -3,6 +3,7 @@ import 'package:global/core/constant/color/colors.dart';
 import 'package:global/core/constant/string/string.dart';
 import 'package:global/core/constant/text_style/text_style.dart';
 import 'package:global/ui/screens/contact_screen/contact_screen.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Keypad extends StatefulWidget {
   const Keypad({super.key});
@@ -30,46 +31,27 @@ class _KeypadState extends State<Keypad> {
             ),
           ),
           //
-          const SizedBox(height: 30),
-          //
-          //
-          //
-          //text field start....
-          //
-          //
+          SizedBox(height: 30.h),
+
           Text(
             display,
-
-            style: const TextStyle(
-              fontSize: 20,
+            style: TextStyle(
+              fontSize: 30.sp,
               color: Colors.black,
               fontWeight: FontWeight.bold,
             ),
             overflow: TextOverflow.ellipsis, // Prevents overflow
             maxLines: 1,
           ),
-          //
-          // text field end
-          //
-          //
-          //
-          //text button start
-          //
+
           TextButton(
             onPressed: () {},
-            child: const Text(
+            child: Text(
               'Add Contact',
               style: style12bgreen,
             ),
           ),
-          //
 
-          //
-          //text buttton end
-          //
-          //
-          //
-          // keypad buttons starts
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
             child: Row(
@@ -83,7 +65,7 @@ class _KeypadState extends State<Keypad> {
                         });
                       }
                     },
-                    child: const Text(
+                    child: Text(
                       '1',
                       style: style18regular,
                     )),
@@ -95,7 +77,7 @@ class _KeypadState extends State<Keypad> {
                         });
                       }
                     },
-                    child: const Text(
+                    child: Text(
                       '2',
                       style: style18regular,
                     )),
@@ -107,7 +89,7 @@ class _KeypadState extends State<Keypad> {
                         });
                       }
                     },
-                    child: const Text(
+                    child: Text(
                       '3',
                       style: style18regular,
                     ))
@@ -127,7 +109,7 @@ class _KeypadState extends State<Keypad> {
                         });
                       }
                     },
-                    child: const Text(
+                    child: Text(
                       '4',
                       style: style18regular,
                     )),
@@ -139,7 +121,7 @@ class _KeypadState extends State<Keypad> {
                         });
                       }
                     },
-                    child: const Text(
+                    child: Text(
                       '5',
                       style: style18regular,
                     )),
@@ -151,7 +133,7 @@ class _KeypadState extends State<Keypad> {
                         });
                       }
                     },
-                    child: const Text(
+                    child: Text(
                       '6',
                       style: style18regular,
                     ))
@@ -171,7 +153,7 @@ class _KeypadState extends State<Keypad> {
                         });
                       }
                     },
-                    child: const Text(
+                    child: Text(
                       '7',
                       style: style18regular,
                     )),
@@ -183,7 +165,7 @@ class _KeypadState extends State<Keypad> {
                         });
                       }
                     },
-                    child: const Text(
+                    child: Text(
                       '8',
                       style: style18regular,
                     )),
@@ -195,7 +177,7 @@ class _KeypadState extends State<Keypad> {
                         });
                       }
                     },
-                    child: const Text(
+                    child: Text(
                       '9',
                       style: style18regular,
                     ))
@@ -215,7 +197,7 @@ class _KeypadState extends State<Keypad> {
                         });
                       }
                     },
-                    child: const Text(
+                    child: Text(
                       '*',
                       style: style18regular,
                     )),
@@ -235,7 +217,7 @@ class _KeypadState extends State<Keypad> {
                     }
                   },
                   child: RichText(
-                    text: const TextSpan(
+                    text: TextSpan(
                         text: '0\n',
                         style: style18regular,
                         children: [TextSpan(text: '+', style: style14Brown)]),
@@ -249,19 +231,14 @@ class _KeypadState extends State<Keypad> {
                         });
                       }
                     },
-                    child: const Text(
+                    child: Text(
                       '#',
                       style: style18regular,
                     ))
               ],
             ),
           ),
-          //
-          //
-          //keypad button end
-          //
-          //
-          //cantact icon start
+
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
             child: Row(
@@ -271,42 +248,33 @@ class _KeypadState extends State<Keypad> {
                     onPressed: () async {
                       // bool permission =
                       //     await FlutterNativeContactPicker.requestPermission();
-                      Navigator.push(
+                      String selectedContact = await Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const ContactScreen()));
+                      setState(() {
+                        display = selectedContact;
+                      });
                     },
                     icon: const Icon(
                       Icons.import_contacts_rounded,
                       size: 30,
                       color: green,
                     )),
-                //
-                //
-                //contact icon end
-                //
-                //
-                // call icon button start
-                //
-                //
+
                 InkWell(
                   onTap: () {},
-                  child: const CircleAvatar(
-                    radius: 30,
+                  child: CircleAvatar(
+                    radius: 50.r,
                     backgroundColor: mainorange,
-                    child: Icon(
+                    child: const Icon(
                       Icons.call,
                       size: 30,
                       color: Colors.white,
                     ),
                   ),
                 ),
-                //
-                ///
-                /// call icon button end
-                /// //
-                /// //
-                /// backspace icon button start
+
                 IconButton(
                     onPressed: () {
                       if (display.isNotEmpty) {

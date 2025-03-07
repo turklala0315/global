@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 ///***********************************    Small    (10 to 20)         ********************************************************************** */
 
@@ -38,8 +39,8 @@ const style26 = TextStyle(
     color: Colors.black,
     fontFamily: 'semibold',
     fontWeight: FontWeight.w700);
-const style18regular = TextStyle(
-    fontSize: 18,
+TextStyle style18regular = TextStyle(
+    fontSize: 35.sp,
     color: Colors.black,
     fontFamily: 'regular',
     fontWeight: FontWeight.w700);
@@ -58,9 +59,9 @@ const style16B =
     TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold);
 const style14B =
     TextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.bold);
-const style14Brown = TextStyle(
-    fontSize: 12, color: Color(0xff96979B), fontWeight: FontWeight.bold);
+TextStyle style14Brown = TextStyle(
+    fontSize: 12.sp, color: Color(0xff96979B), fontWeight: FontWeight.bold);
 const style12b =
     TextStyle(fontSize: 12, color: Colors.black, fontWeight: FontWeight.bold);
-const style12bgreen = TextStyle(
-    fontSize: 13, color: Color(0xff39ad4a), fontWeight: FontWeight.bold);
+TextStyle style12bgreen = TextStyle(
+    fontSize: 25.sp, color: Color(0xff39ad4a), fontWeight: FontWeight.bold);

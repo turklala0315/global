@@ -1,9 +1,9 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:global/core/constant/color/colors.dart';
 import 'package:global/core/constant/string/string.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ContactScreen extends StatefulWidget {
   const ContactScreen({super.key});
@@ -36,15 +36,6 @@ class _ContactScreenState extends State<ContactScreen> {
     }
   }
 
-  void _makePhoneCall(String phoneNumber) async {
-    final Uri uri = Uri(scheme: 'tel', path: phoneNumber);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
-    } else {
-      // debugPrint("Could not launch $uri");
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,15 +49,15 @@ class _ContactScreenState extends State<ContactScreen> {
                 scale: 2,
               )
             ]),
-            const SizedBox(height: 10),
-            const Align(
+            SizedBox(height: 10.h),
+            Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 'Contacts',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 45.sp, fontWeight: FontWeight.bold),
               ),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10.h),
             contacts == null || contacts!.isEmpty
                 ? const Center(
                     child: CircularProgressIndicator(color: mainorange),
@@ -91,7 +82,8 @@ class _ContactScreenState extends State<ContactScreen> {
                           title: Text(contacts![index].displayName),
                           subtitle: Text(number),
                           onTap: () async {
-                            _makePhoneCall("+1234567890");
+                            Navigator.pop(context,
+                                contacts![index].phones.first.normalizedNumber);
                           },
                         );
                       },

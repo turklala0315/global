@@ -59,7 +59,7 @@ class RootScreen extends StatelessWidget {
             label: " History",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.adjust_rounded),
+            icon: Icon(Icons.adjust_sharp),
             label: " App settings",
           ),
         ],
