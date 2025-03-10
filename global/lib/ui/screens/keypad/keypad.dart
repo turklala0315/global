@@ -270,7 +270,6 @@ class _KeypadState extends State<Keypad> {
                       size: 30,
                       color: green,
                     )),
-
                 InkWell(
                   onTap: () {},
                   child: CircleAvatar(
@@ -283,7 +282,6 @@ class _KeypadState extends State<Keypad> {
                     ),
                   ),
                 ),
-
                 IconButton(
                     onPressed: () {
                       if (display.isNotEmpty) {
@@ -293,9 +291,6 @@ class _KeypadState extends State<Keypad> {
                       }
                     },
                     icon: const Icon(Icons.backspace_outlined))
-                //
-                //
-                // backspace icon button end
               ],
             ),
           ),

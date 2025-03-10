@@ -4,6 +4,7 @@ import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:global/core/constant/color/colors.dart';
 import 'package:global/core/constant/string/string.dart';
+import 'package:global/ui/screens/add_to_contact_screen/add_to_contact.dart';
 
 class ContactScreen extends StatefulWidget {
   const ContactScreen({super.key});
@@ -91,6 +92,15 @@ class _ContactScreenState extends State<ContactScreen> {
                   ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        shape: const CircleBorder(),
+        backgroundColor: mainorange,
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const AddToContact()));
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }

@@ -60,8 +60,12 @@ const style16B =
 const style14B =
     TextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.bold);
 TextStyle style14Brown = TextStyle(
-    fontSize: 12.sp, color: Color(0xff96979B), fontWeight: FontWeight.bold);
+    fontSize: 12.sp,
+    color: const Color(0xff96979B),
+    fontWeight: FontWeight.bold);
 const style12b =
     TextStyle(fontSize: 12, color: Colors.black, fontWeight: FontWeight.bold);
 TextStyle style12bgreen = TextStyle(
-    fontSize: 25.sp, color: Color(0xff39ad4a), fontWeight: FontWeight.bold);
+    fontSize: 25.sp,
+    color: const Color(0xff39ad4a),
+    fontWeight: FontWeight.bold);
