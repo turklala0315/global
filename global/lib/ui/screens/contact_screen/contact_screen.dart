@@ -96,9 +96,17 @@ class _ContactScreenState extends State<ContactScreen> {
       floatingActionButton: FloatingActionButton(
         shape: const CircleBorder(),
         backgroundColor: mainorange,
-        onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const AddToContact()));
+        onPressed: () async {
+          bool? isAdded = await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AddToContact(phoneNumber: ''),
+            ),
+          );
+
+          if (isAdded == true) {
+            getPhoneData(); // Refresh contacts after adding a new one
+          }
         },
         child: const Icon(Icons.add),
       ),

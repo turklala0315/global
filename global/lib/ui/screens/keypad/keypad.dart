@@ -7,7 +7,9 @@ import 'package:global/ui/screens/contact_screen/contact_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Keypad extends StatefulWidget {
-  const Keypad({super.key});
+  const Keypad({
+    super.key,
+  });
 
   @override
   State<Keypad> createState() => _KeypadState();
@@ -15,6 +17,7 @@ class Keypad extends StatefulWidget {
 
 class _KeypadState extends State<Keypad> {
   String display = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,9 +51,12 @@ class _KeypadState extends State<Keypad> {
           TextButton(
             onPressed: () async {
               String selectedContact = await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const AddToContact()));
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      AddToContact(phoneNumber: display), // Pass number
+                ),
+              );
               setState(() {
                 display = selectedContact;
               });

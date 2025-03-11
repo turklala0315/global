@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:global/core/constant/color/colors.dart';
 import 'package:global/core/constant/string/string.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
 class AddToContact extends StatefulWidget {
-  const AddToContact({super.key});
+  final String phoneNumber;
+  const AddToContact({super.key, required this.phoneNumber});
 
   @override
   State<AddToContact> createState() => _AddToContactState();
@@ -13,8 +15,14 @@ class AddToContact extends StatefulWidget {
 
 class _AddToContactState extends State<AddToContact> {
   final formkey = GlobalKey<FormState>();
-  TextEditingController name = TextEditingController();
+  TextEditingController firstname = TextEditingController();
+  TextEditingController lastname = TextEditingController();
   TextEditingController number = TextEditingController();
+  @override
+  void initState() {
+    super.initState();
+    number.text = widget.phoneNumber; // Pre-fill phone number
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +45,21 @@ class _AddToContactState extends State<AddToContact> {
                 ),
                 IconButton(
                     onPressed: () {
-                      if (formkey.currentState!.validate()) {
-                        print('all good');
-                      }
+                      () async {
+                        if (formkey.currentState!.validate()) {
+                          Contact newContact = Contact()
+                            ..name.first = firstname.text
+                            ..name.last = lastname.text
+                            ..phones = [Phone(number.text)];
+
+                          bool permission =
+                              await FlutterContacts.requestPermission();
+                          if (permission) {
+                            await newContact.insert();
+                            Navigator.pop(context, true);
+                          }
+                        }
+                      };
                     },
                     icon: const Icon(
                       Icons.how_to_reg_outlined,
@@ -70,7 +90,7 @@ class _AddToContactState extends State<AddToContact> {
                   child: Column(
                     children: [
                       TextFormField(
-                        controller: name,
+                        controller: firstname,
                         decoration: const InputDecoration(
                             fillColor: lightgrey,
                             filled: true,
@@ -93,7 +113,7 @@ class _AddToContactState extends State<AddToContact> {
                       SizedBox(height: 30.h),
                       //
                       TextFormField(
-                        controller: name,
+                        controller: lastname,
                         decoration: const InputDecoration(
                           fillColor: lightgrey,
                           filled: true,
@@ -102,6 +122,8 @@ class _AddToContactState extends State<AddToContact> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20))),
                           labelText: 'Last Name',
+                          hintText: 'Optional',
+                          hintStyle: TextStyle(color: darkgrey),
                           labelStyle: TextStyle(color: mainorange),
                         ),
                       ),
@@ -109,11 +131,14 @@ class _AddToContactState extends State<AddToContact> {
                       SizedBox(height: 40.h),
                       //
                       IntlPhoneField(
+                        controller: number,
                         keyboardType: TextInputType.number,
                         decoration: const InputDecoration(
+                          prefixIcon: Icon(Icons.call),
                           fillColor: lightgrey,
                           filled: true,
                           labelText: 'Phone Number',
+                          labelStyle: TextStyle(color: mainorange),
                           border: OutlineInputBorder(
                               borderSide: BorderSide.none,
                               borderRadius:
